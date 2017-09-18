@@ -100,6 +100,11 @@ class OgCommentAccessControlHandler extends CommentAccessControlHandler implemen
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
     $commented_entity = !empty($context['commented_entity']) ? $context['commented_entity'] : NULL;
+
+    if (!$commented_entity) {
+      return AccessResult::allowedIf($account->hasPermission('post comment'));
+    }
+
     $has_permission = $this->hasPermission('post comment', $commented_entity, $account);
     return $has_permission->isAllowed() ? AccessResult::allowed() : AccessResult::forbidden();
   }
