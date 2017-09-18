@@ -1,0 +1,5 @@
+services:
+  og_comment.event_subscriber:
+    class: Drupal\og_comment\EventSubscriber\OgCommentEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }

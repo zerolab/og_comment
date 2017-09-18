@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\og\EventSubscriber;
+namespace Drupal\og_comment\EventSubscriber;
 
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -16,43 +16,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class OgCommentEventSubscriber implements EventSubscriberInterface {
 
   use StringTranslationTrait;
-
-  /**
-   * The OG permission manager.
-   *
-   * @var \Drupal\og\PermissionManagerInterface
-   */
-  protected $permissionManager;
-
-  /**
-   * The entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
-   * The service providing information about bundles.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
-   */
-  protected $entityTypeBundleInfo;
-
-  /**
-   * Constructs an OgEventSubscriber object.
-   *
-   * @param \Drupal\og\PermissionManagerInterface $permission_manager
-   *   The OG permission manager.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager.
-   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
-   *   The service providing information about bundles.
-   */
-  public function __construct(PermissionManagerInterface $permission_manager, EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info) {
-    $this->permissionManager = $permission_manager;
-    $this->entityTypeManager = $entity_type_manager;
-    $this->entityTypeBundleInfo = $entity_type_bundle_info;
-  }
 
   /**
    * {@inheritdoc}
